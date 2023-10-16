@@ -1,9 +1,3 @@
 Flask
 pandas
 numpy
-# matplotlib
-# scikit-learn
-# gunicorn
-# scikit-learn
-# xgboost
-waitress
