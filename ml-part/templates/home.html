@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes or Not?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<style>
+    *
+    {
+        margin:0;
+        /* opacity: 0.9;
+        background-color: rgb(0, 0, 0); */
+    }
+    .head
+    {
+        color: rgb(99, 99, 99);
+        position: relative;
+        top:35px;   
+    }
+    .form-group
+    {
+        height: auto;
+        width: 96%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* background-color: red; */
+        position: relative;
+        top:60px;
+        left: 4%;
+        flex-wrap: wrap;
+    }
+    .one,.two
+    {
+        height: auto;
+        width: 570px;
+        display: flex;
+        flex-direction: column;
+        /* background-color: green; */
+        margin: 35px;
+    }
+    .submit
+    {
+        height: 44px;
+        width:115px;
+        background-color: rgb(1, 157, 1);
+        color: white;
+        border: none;
+        border-radius: 7px;
+        position: relative;
+        top:200px;
+        right: 695px;
+        font-size: 1.15rem;
+    }
+    .input_field
+    {
+        height: 55px;
+        margin-bottom: -28px;
+        border-radius: 5px;
+        border: solid 2px rgb(202, 202, 202);
+        padding-left: 14px;
+        background-color: transparent;
+    }
+    .input_field::placeholder
+    {
+        color: rgb(151, 151, 151);
+    }
+    .result
+    {
+        color: rgb(125, 125, 125);
+        font-weight: 500;
+        font-size: 1.6rem;
+        text-align: center;
+        position: relative;
+        top:110px;
+        right: 20px;
+    }
+</style>
+<body>
+
+<div class="back_img">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+    <h1 class="head">Diabetes Prediction for Women</h1>
+ 
+</div>
+</div>
+</div>
+    
+    <form action="{{ url_for('predict')}}" method="post">
+        <div class="form-group">
+            <div class="one">
+                <input class="input_field" type="text" name="Pregnancies" placeholder="Number of times pregnant" required="required" /><br><br>
+                <input class="input_field" type="text" name="Glucose" placeholder="Plasma glucose concentration a 2 hours in an oral glucose tolerance test" required="required" /><br><br>
+                <input class="input_field" type="text" name="BloodPressure" placeholder="Diastolic blood pressure (mm Hg)" required="required" /><br><br>
+                <input class="input_field" type="text" name="SkinThickness" placeholder="Triceps skin fold thickness (mm)" required="required" /><br><br>
+            </div>
+            <div class="two">
+                <input class="input_field" type="text" name="Insulin" placeholder="2-Hour serum insulin (mu U/ml)" required="required" /><br><br>
+                <input class="input_field" type="text" name="BMI" placeholder="Body mass index (weight in kg/(height in m)^2)" required="required" /><br><br>
+                <input class="input_field" type="text" name="DiabetesPedigreeFunction" placeholder="Diabetes pedigree function" required="required" /><br><br>
+                <input class="input_field" type="text" name="Age" placeholder="Age (years)" required="required" /><br><br>
+            </div>
+            <button id="submit" class="submit" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+    
+
+    <br>
+<div class="result">
+    {{ prediction_text }}
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+</body>
+</html>
